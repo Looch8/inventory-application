@@ -2,12 +2,18 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 
-app.get("/", (req, res) => res.send("Hello, world!"));
+const path = require("node:path");
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+const gameRoute = require("./routes/gameRoute");
+app.use("/", gameRoute);
+
+app.get("/", (req, res) => res.render("index"));
 
 app.listen(process.env.PORT || 4001, () => {
-	console.log(
-		`My first Express app - listening on port ${process.env.PORT}!`
-	);
+	console.log(`listening on port ${process.env.PORT}!`);
 });
 
 // *** GAME MANAGEMENT APP ***
