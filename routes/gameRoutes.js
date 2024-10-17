@@ -9,6 +9,9 @@ router.get('/', (req, res) => {
 // Get one game
 
 // Create a game
+router.post('/', (req, res) => {
+    
+})
 
 // Update a game
 
