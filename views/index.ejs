@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title> <%= title %> </title>
 </head>
 <body>
-    <h1>Game Inventory Management App</h1>
+    <h1> <%= title %> </h1>
    
     <ul>
-        <li>Pokemon</li>
-        <li>Mario Party</li>
-        <li>Zelda</li>
+        <% if (locals.games) {%>
+        <% games.forEach(game => { %>
+            <li>
+                ID: <%= game.id %>, <strong>Name:</strong> <%= game.gameName %> <strong>Genre:</strong> <%= game.genre %>
+            </li>
+            <% }) %>
+        <% } %>
     </ul>
     <a href="/add">Add a game</a>
 </body>
