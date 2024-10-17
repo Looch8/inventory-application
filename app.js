@@ -3,6 +3,10 @@ const app = express()
 const gamesRouter = require('./routes/gameRoutes')
 
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({extended: true}))
+
+// Games
+app.use('/add', gamesRouter)
 
 
 // Homepage
@@ -12,7 +16,6 @@ app.get('/', (req, res) => {
 })
 
 
-// Games
-app.use('/games', gamesRouter)
+
 
 app.listen(3000)

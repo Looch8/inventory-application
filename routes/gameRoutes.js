@@ -3,14 +3,14 @@ const router = express.Router()
 
 // Get all games
 router.get('/', (req, res) => {
-    res.render("games", {foobar: 'FOOBAR'})
+    res.render("addGame", {foobar: 'FOOBAR'})
 })
 
 // Get one game
 
 // Create a game
 router.post('/', (req, res) => {
-    
+
 })
 
 // Update a game
